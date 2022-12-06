@@ -1,2 +1,2 @@
 # AoC
- My Yearly Advent of Code Solutions
+ My Advent of Code Solutions
