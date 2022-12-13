@@ -1,13 +1,21 @@
 import numpy
 
 class Forest:
-    trees: list[list[int]]
-    visible_trees: list[list[bool]]
-    scenic_score: list[list[int]]
-    width: int
-    height: int
+    """ A forest of trees """
+    trees: list[list[int]] # Matrix of Trees
+    visible_trees: list[list[bool]] # Matrix of visible_trees from the outside
+    scenic_score: list[list[int]] # Scenic score for each tree in the forest
+    width: int # Width of the forest
+    height: int # Height of the forest
 
     def __init__(self, trees: list[list[int]]):
+        """ Constructor for the Forest class
+
+        Args:
+        @param trees:list[list[int]] A matrix of trees
+
+        """
+
         self.trees = trees
         self.visible_trees = [[False for _ in row] for row in trees]
         self.scenic_score = [[0 for _ in row] for row in trees]
@@ -15,23 +23,28 @@ class Forest:
         self.height = len(trees)
 
     def __repr__(self):
+        """ String representation """
         forest ="\n"+ '\n'.join("".join(a for a in row)for row in self.trees) + "\n"
         return f"Forest({forest})"
 
     def print_visible(self):
+        """ Print the visible trees """
         return "\n".join("".join("#" if tree else " " for tree in row) for row in self.visible_trees)
 
     def print_scenic(self):
+        """ Print the scenic score """
         print("\n".join(", ".join(str(score) for score in row) for row in self.scenic_score))
 
 
 def load_matrix() -> Forest:
+    """ Load the matrix from the input file """
     with open('input_file.txt') as f:
         return Forest([[a for a in line.strip()] for line in f.readlines()])
 
 
 
 def check_visible(forest):
+    """ Check which trees are visible from the outside """
     for row in range(forest.height):
         max_height = forest.trees[row][0]
         for col in range(forest.width):
@@ -42,10 +55,28 @@ def check_visible(forest):
 
     return forest
 
-def rotate_matrix( m ):
+def rotate_matrix( m: list[list[int]]) -> list[list[int]]:
+    """ Rotate a matrix 90 degrees clockwise
+
+    Args:
+    @param m:list[list[int]] A matrix
+
+    Returns:
+    @return list[list[int]] The rotated matrix
+
+    """
     return [[m[j][i] for j in range(len(m))] for i in range(len(m[0])-1,-1,-1)]
 
-def transpose(forest):
+def transpose(forest: Forest) -> Forest:
+    """ Transpose a forest
+
+    Args:
+    @param forest:Forest A forest
+
+    Returns:
+    @return Forest The transposed forest
+
+    """
     forest.trees = rotate_matrix(forest.trees)
     forest.visible_trees = rotate_matrix(forest.visible_trees)
     forest.width = len(forest.trees[0])
@@ -53,6 +84,15 @@ def transpose(forest):
     return forest
 
 def part_1(forest: Forest) -> int:
+    """ Part 1 of the challenge
+
+    Args:
+    @param forest:Forest A forest
+
+    Returns:
+    @return int The number of visible trees
+
+    """
     for tree in range(forest.width):
         forest.visible_trees[0][tree] = True
         forest.visible_trees[forest.height-1][tree] = True
@@ -71,6 +111,15 @@ def part_1(forest: Forest) -> int:
     return count
 
 def part_2(forest: Forest) -> int:
+    """ Part 2 of the challenge
+
+    Args:
+    @param forest:Forest A forest
+
+    Returns:
+    @return int The scenic score
+
+    """
     for row in range(forest.height):
         for col in range(forest.width):
             tree_height = forest.trees[row][col]
