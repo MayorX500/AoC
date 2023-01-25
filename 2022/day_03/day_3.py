@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import string
 CODE = {c: i for i,c in enumerate(string.ascii_lowercase, 1)}
 CODE.update({c: i for i,c in enumerate(string.ascii_uppercase, 27)})

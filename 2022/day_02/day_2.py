@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 Victory = {'Rock':'Scissors','Paper':'Rock','Scissors':'Paper'}
 Draw = {'Rock':'Rock','Paper':'Paper','Scissors':'Scissors'}
 Loss = {'Rock':'Paper','Paper':'Scissors','Scissors':'Rock'}

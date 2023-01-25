@@ -1,6 +1,6 @@
 # Original Layout
 #
-#        [F] [Q]         [Q]        
+#         [F] [Q]         [Q]        
 # [B]     [Q] [V] [D]     [S]        
 # [S] [P] [T] [R] [M]     [D]        
 # [J] [V] [W] [M] [F]     [J]     [J]
