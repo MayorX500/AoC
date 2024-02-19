@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file. See [conven
 ### Documentation
 
 - add [Obsidian](https://obsidian.md/) templater templates - ([4a2b9a0](https://github.com/MayorX500/AoC/commit/4a2b9a027fb55103ce9ae51ef721221e7b819fdc)) - MayorX500
+- update CHANGELOG - ([5968362](https://github.com/MayorX500/AoC/commit/59683624e223fa8a379c18cf6a7a74ad3abf9a73)) - MayorX500
+- update README - ([65edb6a](https://github.com/MayorX500/AoC/commit/65edb6abf67ecf54189535067731892f28e8c7a6)) - MayorX500
 
 ### Features
 
